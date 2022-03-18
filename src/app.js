@@ -22,8 +22,10 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
+  celciusTemperature = response.data.main.temp;
+
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
@@ -61,6 +63,37 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Sydney");
+function displayFahreinheitTemperature(event) {
+  event.preventDefault();
+
+  celciusLink.classList.remove("active");
+  fahreinheitLink.classList.add("active");
+
+  let fahreinheitTemperature = (celciusTemperature * 9) / 5 + 32;
+
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
+}
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+
+  celciusLink.classList.add("active");
+  fahreinheitLink.classList.remove("active");
+
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahreinheitLink = document.querySelector("#fahreinheit-link");
+fahreinheitLink.addEventListener("click", displayFahreinheitTemperature);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+search("Sydney");
