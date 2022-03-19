@@ -14,6 +14,21 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,700&family=Encode+Sans:wght@700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,700&family=Encode+Sans:wght@700&family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Weather App</title>
   </head>
@@ -26,7 +41,7 @@
               <div class="col-9">
                 <input
                   type="search"
-                  placeholder="Search City"
+                  placeholder="Search city..."
                   class="form-control"
                   id="city-input"
                   autocomplete="off"
@@ -40,6 +55,8 @@
                 />
               </div>
             </div>
+
+            <hr />
           </form>
           <div class="overview">
             <h1 id="city"></h1>
@@ -49,7 +66,7 @@
             </ul>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-9">
               <div class="clearfix weather-temperature">
                 <img src="" alt="" id="icon" class="float-left" />
                 <div class="float-left">
@@ -62,26 +79,42 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-3">
               <ul>
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind: <span id="wind"></span> km/h</li>
+                <li>
+                  Humidity: <span id="humidity"></span
+                  ><span id="humidity-percentage">%</span>
+                </li>
+                <li>
+                  Wind: <span id="wind"></span>
+                  <span id="wind-speed">km/h</span>
+                </li>
               </ul>
             </div>
           </div>
+          <hr />
+          <small>
+            This project was coded by Anjelina Kabul and is
+            <a
+              href="https://github.com/AnjelinaGit/vanilla-weather-app"
+              target="_blank"
+              id="open-source"
+            >
+              open-sourced code on GitHub</a
+            >
+            and
+            <a
+              href="https://tender-spence-eccaa0.netlify.app/"
+              id="host"
+              target="_blank"
+            >
+              hosted on Netlify</a
+            >
+          </small>
         </div>
-
-        <small>
-          <a
-            href="https://github.com/AnjelinaGit/vanilla-weather-app"
-            target="_blank"
-          >
-            Open-source code,</a
-          >
-          by Anjelina Kabul</small
-        >
       </div>
     </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
