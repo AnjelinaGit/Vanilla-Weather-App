@@ -67,7 +67,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "127d252c1436feb848b45deb449f2263";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
@@ -118,37 +117,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahreinheitTemperature(event) {
-  event.preventDefault();
-
-  celciusLink.classList.remove("active");
-  fahreinheitLink.classList.add("active");
-
-  let fahreinheitTemperature = (celciusTemperature * 9) / 5 + 32;
-
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
-}
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-
-  celciusLink.classList.add("active");
-  fahreinheitLink.classList.remove("active");
-
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-let celciusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahreinheitLink = document.querySelector("#fahreinheit-link");
-fahreinheitLink.addEventListener("click", displayFahreinheitTemperature);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Sydney");
